@@ -183,7 +183,7 @@ def grab_and_post_inventory_data(machine_name):
                             break
                     if manufacturer != 'virtual' and GET_HARDWARE_INFO:
                         devargs.update({'manufacturer': to_ascii(manufacturer).replace("# SMBIOS     implementations newer than version 2.6 are not\n# fully supported by     this version of dmidecode.\n", "").strip()})
-                        stdin, stdout, stderr = ssh.exec_command("sudo dmidecode -s system-product-    name")
+                        stdin, stdout, stderr = ssh.exec_command("sudo dmidecode -s system-product-name")
                         data_err = stderr.readlines()
                         data_out = stdout.readlines()
                         if not data_err:
