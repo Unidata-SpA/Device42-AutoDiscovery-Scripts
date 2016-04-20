@@ -283,8 +283,7 @@ def grab_and_post_inventory_data(machine_name):
             device_name_in_d42 = msg['msg'][2]
             stdin, stdout, stderr = ssh.exec_command("/sbin/ifconfig -a") #TODO add just macs     without IPs
             data_err = stderr.readlines()
-            data_out = stdout.readlines()
-            if not data_err:
+            if len(data_err) == 0:
                 ipinfo = stdout.readlines()
 
                 # ======= MAC  only=========#
